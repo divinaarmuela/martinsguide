@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Martin's Guides // MD/MEDIA</title>
+<meta name="description" content="Free cinematography guides from Martin Kormushoski. Camera fundamentals, exposure, focal length, white balance. Plus the Power Grade and live webinars from MD/MEDIA." />
+<style>
+  :root {
+    --bg: #fafaf7;
+    --panel: #ffffff;
+    --panel-2: #f3f3ee;
+    --line: #1a1a1a;
+    --line-soft: #d8d6d0;
+    --ink: #0a0a0a;
+    --ink-dim: #4a4a47;
+    --ink-mute: #8a8a86;
+    --accent: #ff5500;
+    --accent-soft: rgba(255, 85, 0, 0.08);
+    --gold: #b8862f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.01em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* TICKER / TOP STRIP */
+  .ticker {
+    border-bottom: 1px solid var(--line);
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 8px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-track {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll 60s linear infinite;
+  }
+  .ticker span { margin-right: 48px; }
+  .ticker .dot { color: var(--accent); }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* HEADER */
+  header {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: rgba(250, 250, 247, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 50;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+  }
+  .logo .slash { color: var(--accent); }
+  nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  nav a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    padding: 80px 32px 60px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 64px;
+    align-items: end;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+  h1 {
+    font-size: clamp(48px, 7vw, 92px);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  h1 .thin { font-weight: 200; color: var(--ink-dim); }
+  .lede {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-dim);
+    max-width: 560px;
+    margin-bottom: 36px;
+  }
+  .hero-meta {
+    border: 1px solid var(--line);
+    padding: 24px;
+    background: var(--panel);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .hero-meta dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
+  }
+  .hero-meta dt {
+    color: var(--ink-mute);
+    margin-bottom: 4px;
+    font-size: 9px;
+  }
+  .hero-meta dd { color: var(--ink); font-weight: 500; }
+
+  /* CTA BUTTONS */
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-primary {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--bg);
+  }
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .btn .arrow { transition: transform 0.2s ease; }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  /* SECTION SHELL */
+  section { padding: 80px 32px; border-bottom: 1px solid var(--line); }
+  .container { max-width: 1280px; margin: 0 auto; }
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    margin-bottom: 48px;
+    align-items: end;
+  }
+  .section-tag {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 16px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+  .section-tag .num { color: var(--accent); margin-right: 12px; font-weight: 700; }
+  h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+  h2 .thin { font-weight: 200; color: var(--ink-dim); }
+  .section-desc {
+    font-size: 15px;
+    color: var(--ink-dim);
+    max-width: 520px;
+    line-height: 1.6;
+  }
+
+  /* GUIDES GRID */
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .guide-card {
+    background: var(--panel);
+    padding: 32px;
+    position: relative;
+    transition: background 0.2s ease;
+    cursor: pointer;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+  }
+  .guide-card:hover { background: var(--panel-2); }
+  .guide-card:hover .guide-cta { color: var(--accent); }
+  .guide-card:hover .corner-mark { color: var(--accent); }
+  .corner-mark {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--ink-mute);
+    transition: color 0.2s ease;
+  }
+  .guide-icon {
+    font-size: 36px;
+    font-weight: 200;
+    line-height: 1;
+    margin-bottom: 24px;
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .guide-icon .unit {
+    font-size: 13px;
+    color: var(--ink-mute);
+    letter-spacing: 0.1em;
+    font-weight: 400;
+  }
+  .guide-cat {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+  .guide-title {
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin-bottom: 12px;
+    line-height: 1.1;
+  }
+  .guide-desc {
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.55;
+    flex-grow: 1;
+    margin-bottom: 24px;
+  }
+  .guide-cta {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    transition: color 0.2s ease;
+  }
+  .guide-card.locked {
+    background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+  }
+  .guide-card.locked .guide-icon { color: var(--ink); }
+  .guide-card.locked .guide-cta { color: var(--ink); }
+  .guide-card.locked .corner-mark { color: var(--gold); }
+  .lock-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  /* EMAIL CAPTURE */
+  .capture {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 48px;
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .capture h3 {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin-bottom: 12px;
+    line-height: 1.1;
+  }
+  .capture p {
+    font-size: 14px;
+    color: var(--ink-dim);
+    line-height: 1.6;
+  }
+  .capture-form { display: flex; flex-direction: column; gap: 12px; }
+  .capture-form label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .capture-form input {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 16px;
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+  }
+  .capture-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .capture-form .btn { justify-content: center; }
+  .form-fine {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 8px;
+  }
+
+  /* SUBSCRIPTION SECTION */
+  .sub-section { background: var(--panel-2); }
+  .sub-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+  }
+  .sub-grid-single {
+    grid-template-columns: minmax(0, 640px);
+    justify-content: center;
+  }
+  .sub-feature {
+    border: 1px solid var(--line);
+    padding: 40px;
+    background: var(--panel);
+    position: relative;
+  }
+  .feature-num {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 48px;
+    font-weight: 200;
+    color: var(--line);
+    line-height: 1;
+  }
+  .feature-tag {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .feature-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .feature-desc {
+    font-size: 14px;
+    color: var(--ink-dim);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+  .feature-list {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+  .feature-list li {
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .feature-list li::before {
+    content: "+";
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-top: 1px solid var(--accent);
+    padding-top: 24px;
+  }
+  .price {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .price-unit {
+    font-size: 12px;
+    color: var(--ink-mute);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .price-prefix {
+    font-size: 14px;
+    color: var(--ink-dim);
+    margin-right: 4px;
+  }
+
+  /* WEBINAR SECTION */
+  .webinar-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr 240px;
+    gap: 32px;
+    align-items: center;
+    border: 1px solid var(--line);
+    padding: 40px;
+    background: var(--panel);
+    margin-top: 24px;
+    transition: border-color 0.2s ease;
+  }
+  .webinar-grid:hover { border-color: var(--accent); }
+  .webinar-date {
+    border-right: 1px solid var(--line);
+    padding-right: 32px;
+  }
+  .webinar-day {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+  }
+  .webinar-month {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 8px;
+  }
+  .webinar-time {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 12px;
+  }
+  .webinar-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .webinar-cat {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .webinar-title {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.05;
+  }
+  .webinar-desc {
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+  .webinar-action {
+    text-align: right;
+    border-left: 1px solid var(--line);
+    padding-left: 32px;
+  }
+  .seats {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+  .seats .num { color: var(--ink); font-weight: 700; }
+
+  /* INSTRUCTOR */
+  .instructor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .instructor-img {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--panel) 0%, var(--panel-2) 100%);
+    border: 1px solid var(--line);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .instructor-placeholder {
+    text-align: center;
+    color: var(--ink-mute);
+  }
+  .instructor-placeholder .big {
+    font-size: 96px;
+    font-weight: 200;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .corner-tl, .corner-tr, .corner-bl, .corner-br {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-color: var(--accent);
+    border-style: solid;
+    border-width: 0;
+  }
+  .corner-tl { top: 12px; left: 12px; border-top-width: 1px; border-left-width: 1px; }
+  .corner-tr { top: 12px; right: 12px; border-top-width: 1px; border-right-width: 1px; }
+  .corner-bl { bottom: 12px; left: 12px; border-bottom-width: 1px; border-left-width: 1px; }
+  .corner-br { bottom: 12px; right: 12px; border-bottom-width: 1px; border-right-width: 1px; }
+
+  .instructor-text h3 {
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+  .instructor-text h3 .thin { font-weight: 200; color: var(--ink-dim); }
+  .instructor-text p {
+    font-size: 15px;
+    color: var(--ink-dim);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .credentials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .credential .num {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .credential .label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 6px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 48px 32px 32px;
+    border-top: 1px solid var(--line);
+    background: var(--ink);
+    color: var(--bg);
+  }
+  footer .logo { color: var(--bg); }
+  footer .logo .slash { color: var(--accent); }
+  footer h4 { color: var(--ink-mute); }
+  footer a { color: rgba(250, 250, 247, 0.7); }
+  footer .footer-bottom { color: var(--ink-mute); border-top-color: rgba(250, 250, 247, 0.15); }
+  footer p { color: rgba(250, 250, 247, 0.65); }
+  .footer-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 32px;
+  }
+  .footer-grid h4 {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 16px;
+  }
+  .footer-grid ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-grid a {
+    font-size: 12px;
+    color: var(--ink-dim);
+    transition: color 0.2s ease;
+  }
+  .footer-grid a:hover { color: var(--accent); }
+  .footer-bottom {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* TECH NOTES */
+  .tech-frame {
+    position: relative;
+  }
+  .tech-frame::before {
+    content: attr(data-label);
+    position: absolute;
+    top: -1px;
+    left: 16px;
+    background: var(--bg);
+    padding: 0 8px;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    transform: translateY(-50%);
+  }
+
+  /* GATE MODAL */
+  .gate-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.78);
+    backdrop-filter: blur(6px);
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .gate-overlay.is-open { display: flex; }
+  .gate-modal {
+    background: var(--bg);
+    border: 1px solid var(--ink);
+    width: 100%;
+    max-width: 540px;
+    padding: 48px;
+    position: relative;
+    animation: gate-in 0.25s ease;
+  }
+  @keyframes gate-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .gate-corner {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .gate-corner .dot { color: var(--accent); }
+  .gate-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    transition: all 0.2s ease;
+  }
+  .gate-close:hover { background: var(--ink); color: var(--bg); }
+  .gate-tag {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+  .gate-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+  .gate-subtitle {
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.55;
+    margin-bottom: 28px;
+  }
+  .gate-success {
+    text-align: center;
+    padding: 32px 16px;
+  }
+  .gate-success .check {
+    font-size: 48px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .gate-success h4 {
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin-bottom: 12px;
+  }
+  .gate-success p {
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .gate-success a {
+    color: var(--accent);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  /* COMING SOON CARD */
+  .guide-soon {
+    background: var(--panel-2);
+  }
+  .guide-soon .guide-cta { color: var(--ink-mute); }
+  .guide-soon:hover .guide-cta { color: var(--ink); }
+
+  /* RESPONSIVE */
+  @media (max-width: 980px) {
+    .hero-grid, .section-head, .sub-grid, .instructor, .capture, .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .guides-grid { grid-template-columns: repeat(2, 1fr); }
+    .webinar-grid { grid-template-columns: 1fr; gap: 24px; }
+    .webinar-date, .webinar-action { border: none; padding: 0; }
+    nav ul { display: none; }
+    section { padding: 56px 24px; }
+    .hero { padding: 56px 24px; }
+    header { padding: 16px 24px; }
+  }
+  @media (max-width: 600px) {
+    .guides-grid { grid-template-columns: 1fr; }
+    .credentials { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span><span class="dot">●</span> REC</span>
+    <span>MD/MEDIA REFERENCE LIBRARY</span>
+    <span>FREE GUIDES // VOL.01 — VOL.05</span>
+    <span><span class="dot">●</span> COLOUR LAB SUBSCRIPTIONS OPEN</span>
+    <span>POWER GRADE 01 — NOW SHIPPING</span>
+    <span>NEXT WEBINAR // 14.05.26</span>
+    <span>SONY FX3 // S-LOG3 // 4K · 24P · 422 · 10BIT</span>
+    <span><span class="dot">●</span> REC</span>
+    <span>MD/MEDIA REFERENCE LIBRARY</span>
+    <span>FREE GUIDES // VOL.01 — VOL.05</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">MD<span class="slash">/</span>MEDIA</div>
+  <nav>
+    <ul>
+      <li><a href="#guides">Guides</a></li>
+      <li><a href="#colour-lab">Colour Lab</a></li>
+      <li><a href="#power-grade">Power Grade</a></li>
+      <li><a href="#webinars">Webinars</a></li>
+      <li><a href="#instructor">Martin</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Cinematography Reference Library</div>
+      <h1>Martin's<br/>Guides<br/><span class="thin">From Set To Screen</span></h1>
+      <p class="lede">A working library of cinematography reference documents. Free to download, built from years on set with real cameras and real clients. Learn the fundamentals first, then step into the colour lab when you're ready to grade like a professional.</p>
+      <div class="cta-row">
+        <a href="#guides" class="btn btn-primary">Browse Free Guides <span class="arrow">→</span></a>
+        <a href="#colour-lab" class="btn">Enter Colour Lab <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <aside class="hero-meta">
+      <dl>
+        <div>
+          <dt>Library</dt>
+          <dd>05 Live · 03 Soon</dd>
+        </div>
+        <div>
+          <dt>Format</dt>
+          <dd>PDF · A4</dd>
+        </div>
+        <div>
+          <dt>Cost</dt>
+          <dd>Free</dd>
+        </div>
+        <div>
+          <dt>Access</dt>
+          <dd>Email Required</dd>
+        </div>
+        <div>
+          <dt>Camera Ref.</dt>
+          <dd>Sony FX3</dd>
+        </div>
+        <div>
+          <dt>Workflow</dt>
+          <dd>PAL · 25P</dd>
+        </div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<!-- FREE GUIDES -->
+<section id="guides">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag"><span class="num">01</span>Free Library</div>
+        <h2>The<br/><span class="thin">Fundamentals</span></h2>
+      </div>
+      <p class="section-desc">Everything you need to understand exposure, motion, light and lens. These are the same reference sheets I keep open on set. Built clean, written tight, designed to be printed and pinned to a wall.</p>
+    </div>
+
+    <div class="guides-grid">
+
+      <article class="guide-card" data-guide="White Balance Guide" data-pdf="https://d4380ba3-de84-418b-9195-d210b97c529d.usrfiles.com/ugd/c5a69a_31975edd7f554a27a75fa64dd06940a7.pdf">
+        <div class="corner-mark">// 01</div>
+        <div class="guide-cat">Colour // Light</div>
+        <div class="guide-title">White Balance Guide</div>
+        <p class="guide-desc">Read the colour of light. Lock manual white balance, match cameras across a multicam shoot, and stop fixing colour drift in post.</p>
+        <div class="guide-cta"><span>Download PDF</span><span>↓</span></div>
+      </article>
+
+      <article class="guide-card" data-guide="Focal Length Guide" data-pdf="https://d4380ba3-de84-418b-9195-d210b97c529d.usrfiles.com/ugd/c5a69a_bd77dafa4c994ab289c2791587a9dc16.pdf">
+        <div class="corner-mark">// 02</div>
+        <div class="guide-cat">Lens // Composition</div>
+        <div class="guide-title">Focal Length Guide</div>
+        <p class="guide-desc">From 16mm to 135mm. Compression, distortion, working distance, and what each focal length does to a portrait. Choose the right lens for the right story.</p>
+        <div class="guide-cta"><span>Download PDF</span><span>↓</span></div>
+      </article>
+
+      <article class="guide-card" data-guide="Frames Per Second Guide" data-pdf="https://d4380ba3-de84-418b-9195-d210b97c529d.usrfiles.com/ugd/c5a69a_8e0800b084794ce192a1735fa4bb9989.pdf">
+        <div class="corner-mark">// 03</div>
+        <div class="guide-cat">Workflow // Motion</div>
+        <div class="guide-title">Frames Per Second</div>
+        <p class="guide-desc">A PAL workflow guide to frame rates. 25, 50, 100, 200fps. When to reach for each, what light you need, and how slow motion really works in the edit.</p>
+        <div class="guide-cta"><span>Download PDF</span><span>↓</span></div>
+      </article>
+
+      <article class="guide-card" data-guide="VND &amp; CPL Filter Guide" data-pdf="https://d4380ba3-de84-418b-9195-d210b97c529d.usrfiles.com/ugd/c5a69a_171148119f75452599173a72758a92c8.pdf">
+        <div class="corner-mark">// 04</div>
+        <div class="guide-cat">Optics // Filtration</div>
+        <div class="guide-title">VND &amp; CPL Filters</div>
+        <p class="guide-desc">Why every serious operator carries a variable ND and a circular polariser. Stop reflections, hold shutter, and protect the cinematic look in any light.</p>
+        <div class="guide-cta"><span>Download PDF</span><span>↓</span></div>
+      </article>
+
+      <article class="guide-card" data-guide="FX3 Cinema Settings Guide" data-pdf="https://d4380ba3-de84-418b-9195-d210b97c529d.usrfiles.com/ugd/c5a69a_83be82c84f754671a2efb660a6aa73dc.pdf">
+        <div class="corner-mark">// 05</div>
+        <div class="guide-cat">Camera // Setup</div>
+        <div class="guide-title">FX3 Cinema Settings</div>
+        <p class="guide-desc">A complete pro workflow for the Sony FX3. S-Log3, Cine EI, 4:2:2 10-bit, native ISO 800, 24fps. Nine settings that turn a small camera into a cinema rig.</p>
+        <div class="guide-cta"><span>Download PDF</span><span>↓</span></div>
+      </article>
+
+      <article class="guide-card guide-soon" data-guide="Aperture Guide">
+        <div class="corner-mark">// 06</div>
+        <div class="lock-tag" style="border-color: var(--ink-mute); color: var(--ink-mute);">◇ Coming Soon</div>
+        <div class="guide-cat">Exposure // Lens</div>
+        <div class="guide-title">Aperture Guide</div>
+        <p class="guide-desc">How f/stop controls light, depth of field, and the cinematic look. The trade-offs between sharpness, separation and exposure across every common aperture.</p>
+        <div class="guide-cta"><span>Notify Me</span><span>○</span></div>
+      </article>
+
+      <article class="guide-card guide-soon" data-guide="Shutter Speed Guide">
+        <div class="corner-mark">// 07</div>
+        <div class="lock-tag" style="border-color: var(--ink-mute); color: var(--ink-mute);">◇ Coming Soon</div>
+        <div class="guide-cat">Exposure // Motion</div>
+        <div class="guide-title">Shutter Speed Guide</div>
+        <p class="guide-desc">The 180 degree rule, why it matters, and when to break it. How shutter angle defines motion blur and gives footage that unmistakable film quality.</p>
+        <div class="guide-cta"><span>Notify Me</span><span>○</span></div>
+      </article>
+
+      <article class="guide-card guide-soon" data-guide="Lighting Guide">
+        <div class="corner-mark">// 08</div>
+        <div class="lock-tag" style="border-color: var(--ink-mute); color: var(--ink-mute);">◇ Coming Soon</div>
+        <div class="guide-cat">In Production</div>
+        <div class="guide-title">Lighting Guide</div>
+        <p class="guide-desc">Three point lighting, motivated practicals, and reading natural light. Get on the list and we'll send it the day it ships.</p>
+        <div class="guide-cta"><span>Notify Me</span><span>○</span></div>
+      </article>
+
+      <article class="guide-card locked" data-guide="S-Log3 Grade Map" data-locked="true">
+        <div class="corner-mark">// LOCKED</div>
+        <div class="lock-tag">◆ Subscriber Only</div>
+        <div class="guide-cat">Colour Grading // Pro</div>
+        <div class="guide-title">S-Log3 Grade Map</div>
+        <p class="guide-desc">The complete chain from log to delivery. CST, exposure, colour, look. Reserved for Colour Lab subscribers because this is the work people pay for.</p>
+        <div class="guide-cta"><span>Unlock Access</span><span>◆</span></div>
+      </article>
+
+    </div>
+
+    <!-- EMAIL CAPTURE -->
+    <div class="capture">
+      <div>
+        <h3>Get the full library</h3>
+        <p>One email, seven guides, sent straight to your inbox as printable PDFs. You'll also get the next guide the day it drops, plus occasional notes from set. No spam. Unsubscribe anytime.</p>
+      </div>
+      <form class="capture-form" onsubmit="event.preventDefault(); openGate('FULL_LIBRARY');">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Your Name" required />
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@studio.com" required />
+        <button type="submit" class="btn btn-primary">Send Me The Guides <span class="arrow">→</span></button>
+        <p class="form-fine">// MD/MEDIA · Privacy Respected</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- COLOUR LAB SUBSCRIPTION -->
+<section id="colour-lab" class="sub-section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag"><span class="num">02</span>Paid Tier</div>
+        <h2>Colour<br/><span class="thin">Lab</span></h2>
+      </div>
+      <p class="section-desc">Where the free guides end, the lab begins. A subscription library teaching the actual craft of colour grading. Real footage, real timelines, real fixes. Built for editors who are tired of LUT presets that almost work.</p>
+    </div>
+
+    <div class="sub-grid sub-grid-single">
+
+      <div class="sub-feature" id="power-grade">
+        <div class="feature-num">01</div>
+        <div class="feature-tag">◆ One Time Purchase</div>
+        <div class="feature-title">Power Grade<br/>01</div>
+        <p class="feature-desc">The grade I run on most client work. A complete DaVinci Resolve power grade with separated nodes for exposure, contrast, colour balance, skin tone, and final look. Drop it on the timeline, dial it in, ship the cut.</p>
+        <ul class="feature-list">
+          <li>DaVinci Compatible</li>
+          <li>S-Log3 &amp; Rec.709 Versions</li>
+          <li>Modular Node Tree</li>
+          <li>Setup Walkthrough Video</li>
+          <li>Free Lifetime Updates</li>
+          <li>Use On Unlimited Projects</li>
+        </ul>
+        <div class="price-row">
+          <span class="price-prefix">USD</span>
+          <span class="price">$99</span>
+          <span class="price-unit">One Time</span>
+        </div>
+        <a href="#" class="btn btn-primary">Buy Power Grade <span class="arrow">→</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WEBINARS -->
+<section id="webinars">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag"><span class="num">03</span>Live Sessions</div>
+        <h2>Webinars<br/><span class="thin">Live On Air</span></h2>
+      </div>
+      <p class="section-desc">Free 60 minute live sessions with Martin. Real demos, real questions, no upsell mid stream. The first round of dates drops soon, secure your seat now and you'll be the first to know.</p>
+    </div>
+
+    <div class="capture" style="margin-top: 0;">
+      <div>
+        <h3>Secure Your Seat</h3>
+        <p>Tell us what you want covered first. We'll send dates the moment the schedule locks in, with priority access for everyone on this list before public seats open.</p>
+      </div>
+      <form class="capture-form">
+        <label for="webinar-name">Full Name</label>
+        <input type="text" id="webinar-name" placeholder="Your Name" required />
+        <label for="webinar-email">Email Address</label>
+        <input type="email" id="webinar-email" placeholder="you@studio.com" required />
+        <label for="webinar-topic">Topic You Want Covered</label>
+        <input type="text" id="webinar-topic" placeholder="e.g. grading skin tones, FX3 setup, lighting interviews" />
+        <button type="submit" class="btn btn-primary">Secure My Seat <span class="arrow">→</span></button>
+        <p class="form-fine">// MD/MEDIA · Priority Access</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section id="instructor">
+  <div class="container">
+    <div class="instructor">
+      <div class="instructor-img">
+        <span class="corner-tl"></span>
+        <span class="corner-tr"></span>
+        <span class="corner-bl"></span>
+        <span class="corner-br"></span>
+        <div style="position: absolute; top: 12px; left: 50%; transform: translateX(-50%); font-size: 9px; letter-spacing: 0.28em; color: var(--ink-mute);">// MK_001</div>
+        <div class="instructor-placeholder">
+          <div class="big">M.K.</div>
+          <div style="font-size: 10px; letter-spacing: 0.28em;">PORTRAIT // 4×5</div>
+        </div>
+      </div>
+      <div class="instructor-text">
+        <div class="section-tag" style="margin-bottom: 24px;"><span class="num">04</span>The Operator</div>
+        <h3>Martin<br/>Kormushoski<br/><span class="thin">Cinematographer &amp; Videographer</span></h3>
+        <p>I've spent the last decade behind cameras for brands, founders, and broadcast. Started in run and gun video work, ended up running a creative studio. Somewhere in the middle I fell in love with teaching the craft, because most of what I learned the hard way could have been a one page guide.</p>
+        <p>Martin's Guides is that one page guide. Free, because the fundamentals should be. Then if you want to go deeper into colour, the lab is open.</p>
+        <div class="credentials">
+          <div class="credential">
+            <div class="num">10+</div>
+            <div class="label">Years Shooting</div>
+          </div>
+          <div class="credential">
+            <div class="num">340</div>
+            <div class="label">Projects Delivered</div>
+          </div>
+          <div class="credential">
+            <div class="num">2.4K</div>
+            <div class="label">Operators Trained</div>
+          </div>
+          <div class="credential">
+            <div class="num">★ 4.9</div>
+            <div class="label">Avg Lab Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="logo" style="margin-bottom: 16px;">MD<span class="slash">/</span>MEDIA</div>
+      <p style="font-size: 12px; color: var(--ink-dim); line-height: 1.6; max-width: 320px;">A creative studio and education platform run by Martin Kormushoski &amp; Divina. Cinematography reference, colour grading craft, and live workshops for working operators.</p>
+    </div>
+    <div>
+      <h4>Library</h4>
+      <ul>
+        <li><a href="#guides">Free Guides</a></li>
+        <li><a href="#colour-lab">Colour Lab</a></li>
+        <li><a href="#power-grade">Power Grade</a></li>
+        <li><a href="#webinars">Webinars</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Studio</h4>
+      <ul>
+        <li><a href="#">About Martin</a></li>
+        <li><a href="#">Client Work</a></li>
+        <li><a href="#">Visibility System</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">Newsletter</a></li>
+        <li><a href="mailto:hello@mdmmarketing.com.au">Email Studio</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© MD/MEDIA · 2026 · All Rights Reserved</div>
+    <div>www.mdmmarketing.com.au</div>
+  </div>
+</footer>
+
+<!-- EMAIL GATE MODAL -->
+<div class="gate-overlay" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div class="gate-modal">
+    <div class="gate-corner"><span class="dot">●</span> REC // SECURE LINK</div>
+    <button class="gate-close" id="gate-close" aria-label="Close">×</button>
+
+    <div id="gate-form-view">
+      <div class="gate-tag" id="gate-tag">◆ Free Download</div>
+      <h3 class="gate-title" id="gate-title">Get Your Guide</h3>
+      <p class="gate-subtitle" id="gate-subtitle">Pop your details in below and the PDF will download instantly. We'll also send you the next guide the day it ships, no spam, unsubscribe anytime.</p>
+      <form class="capture-form" id="gate-form">
+        <label for="gate-name">Full Name</label>
+        <input type="text" id="gate-name" placeholder="Your Name" required />
+        <label for="gate-email">Email Address</label>
+        <input type="email" id="gate-email" placeholder="you@studio.com" required />
+        <button type="submit" class="btn btn-primary">Send Me The Guide <span class="arrow">→</span></button>
+        <p class="form-fine">// MD/MEDIA · Privacy Respected</p>
+      </form>
+    </div>
+
+    <div id="gate-success-view" class="gate-success" style="display: none;">
+      <div class="check">✓</div>
+      <h4 id="gate-success-title">Sent</h4>
+      <p id="gate-success-msg">Your download should start automatically. If it doesn't, <a href="#" id="gate-manual-link" target="_blank" rel="noopener">click here to grab it</a>.</p>
+      <button class="btn" id="gate-done">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  // ============================================================
+  //  GOOGLE SHEETS ENDPOINT
+  //  Paste your Apps Script Web App URL between the quotes.
+  //  See SETUP_GOOGLE_SHEETS.md for the full walkthrough.
+  // ============================================================
+  var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyuiJhIMMyAp9oLmRpqJXRlF4GNhVPDl-Hj1VhCExecXneKsCdzPJRFdoDf62cMQ4lpJg/exec';
+
+  var FULL_LIBRARY = [
+    { name: 'White Balance Guide', url: 'https://d4380ba3-de84-418b-9195-d210b97c529d.usrfiles.com/ugd/c5a69a_31975edd7f554a27a75fa64dd06940a7.pdf' },
+    { name: 'Focal Length Guide', url: 'https://d4380ba3-de84-418b-9195-d210b97c529d.usrfiles.com/ugd/c5a69a_bd77dafa4c994ab289c2791587a9dc16.pdf' },
+    { name: 'Frames Per Second Guide', url: 'https://d4380ba3-de84-418b-9195-d210b97c529d.usrfiles.com/ugd/c5a69a_8e0800b084794ce192a1735fa4bb9989.pdf' },
+    { name: 'VND & CPL Filter Guide', url: 'https://d4380ba3-de84-418b-9195-d210b97c529d.usrfiles.com/ugd/c5a69a_171148119f75452599173a72758a92c8.pdf' },
+    { name: 'FX3 Cinema Settings Guide', url: 'https://d4380ba3-de84-418b-9195-d210b97c529d.usrfiles.com/ugd/c5a69a_83be82c84f754671a2efb660a6aa73dc.pdf' }
+  ];
+
+  var gate = document.getElementById('gate');
+  var formView = document.getElementById('gate-form-view');
+  var successView = document.getElementById('gate-success-view');
+  var titleEl = document.getElementById('gate-title');
+  var subEl = document.getElementById('gate-subtitle');
+  var tagEl = document.getElementById('gate-tag');
+  var form = document.getElementById('gate-form');
+  var closeBtn = document.getElementById('gate-close');
+  var doneBtn = document.getElementById('gate-done');
+  var manualLink = document.getElementById('gate-manual-link');
+  var successTitle = document.getElementById('gate-success-title');
+  var successMsg = document.getElementById('gate-success-msg');
+
+  var current = null;
+
+  function openGate(target, isLocked, isSoon) {
+    current = target;
+    formView.style.display = 'block';
+    successView.style.display = 'none';
+    form.reset();
+
+    if (target === 'FULL_LIBRARY') {
+      tagEl.textContent = '◆ Full Library Download';
+      titleEl.textContent = 'Send Me All Five';
+      subEl.textContent = 'You\'ll get every guide in the library, plus the next one the day it drops. No spam. Unsubscribe anytime.';
+    } else if (isSoon) {
+      tagEl.textContent = '◇ Notify List';
+      titleEl.textContent = 'Get It First';
+      subEl.textContent = 'This one\'s in production. Drop your details and we\'ll email you the moment it ships.';
+    } else if (isLocked) {
+      tagEl.textContent = '◆ Subscriber Access';
+      titleEl.textContent = 'Unlock The Lab';
+      subEl.textContent = 'This guide lives inside the Colour Lab. Tell us where to send your access link and we\'ll set you up.';
+    } else {
+      tagEl.textContent = '◆ Free Download';
+      titleEl.textContent = 'Get The Guide';
+      subEl.textContent = 'Pop your details in below and the PDF will download instantly. We\'ll also send you the next guide the day it ships.';
+    }
+
+    gate.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { document.getElementById('gate-name').focus(); }, 80);
+  }
+
+  function closeGate() {
+    gate.classList.remove('is-open');
+    document.body.style.overflow = '';
+    current = null;
+  }
+
+  function triggerDownload(url, filename) {
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename || '';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  function showSuccess(target) {
+    formView.style.display = 'none';
+    successView.style.display = 'block';
+
+    if (target === 'FULL_LIBRARY') {
+      successTitle.textContent = 'Library Sent';
+      successMsg.innerHTML = 'Your downloads are starting now. Five PDFs, one tab each. Check your inbox in a moment for the welcome email.';
+      manualLink.style.display = 'none';
+      // open all 5 PDFs in new tabs
+      FULL_LIBRARY.forEach(function (g, i) {
+        setTimeout(function () { window.open(g.url, '_blank', 'noopener'); }, i * 250);
+      });
+    } else if (target && target.isSoon) {
+      successTitle.textContent = 'You\'re On The List';
+      successMsg.innerHTML = 'We\'ll email you the moment the <strong>' + target.name + '</strong> ships. Talk soon.';
+      manualLink.style.display = 'none';
+    } else if (target && target.isLocked) {
+      successTitle.textContent = 'Access Requested';
+      successMsg.innerHTML = 'Check your inbox for the Colour Lab welcome email and your subscriber access link.';
+      manualLink.style.display = 'none';
+    } else if (target && target.url) {
+      successTitle.textContent = 'Download Starting';
+      successMsg.innerHTML = 'Your <strong>' + target.name + '</strong> PDF should open in a new tab. If your browser blocked the popup, ';
+      var link = document.createElement('a');
+      link.href = target.url;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = 'click here to download it';
+      successMsg.appendChild(link);
+      successMsg.appendChild(document.createTextNode('.'));
+      window.open(target.url, '_blank', 'noopener');
+    }
+  }
+
+  // Wire guide cards
+  document.querySelectorAll('.guide-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var pdf = card.getAttribute('data-pdf');
+      var name = card.getAttribute('data-guide') || 'Guide';
+      var locked = card.getAttribute('data-locked') === 'true';
+      var soon = card.classList.contains('guide-soon');
+      var target = { name: name, url: pdf, isLocked: locked, isSoon: soon };
+      window._gateTarget = target;
+      openGate(target, locked, soon);
+    });
+  });
+
+  // Push lead to Google Sheets via Apps Script web app.
+  // Uses URLSearchParams to avoid CORS preflight, fire-and-forget.
+  function sendLead(payload) {
+    // Always keep a local backup
+    try {
+      var saved = JSON.parse(localStorage.getItem('mdm_leads') || '[]');
+      saved.push(Object.assign({ at: new Date().toISOString() }, payload));
+      localStorage.setItem('mdm_leads', JSON.stringify(saved));
+    } catch (err) {}
+
+    if (!SHEET_ENDPOINT) {
+      console.warn('SHEET_ENDPOINT not configured. Lead saved locally only.', payload);
+      return Promise.resolve();
+    }
+
+    // POST as plain text JSON to avoid CORS preflight.
+    // Apps Script reads it via JSON.parse(e.postData.contents).
+    return fetch(SHEET_ENDPOINT, {
+      method: 'POST',
+      body: JSON.stringify(Object.assign({ page: window.location.href }, payload))
+    }).catch(function (err) {
+      console.warn('Lead push failed, kept local copy.', err);
+    });
+  }
+
+  function classifyTarget(target) {
+    if (target === 'FULL_LIBRARY') return { guide: 'Full Library (5 PDFs)', type: 'Full Library' };
+    if (!target) return { guide: 'Unknown', type: 'Free Download' };
+    if (target.isSoon) return { guide: target.name, type: 'Notify Soon' };
+    if (target.isLocked) return { guide: target.name, type: 'Subscriber Unlock' };
+    return { guide: target.name, type: 'Free Download' };
+  }
+
+  // Form submit
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('gate-name').value.trim();
+    var email = document.getElementById('gate-email').value.trim();
+    if (!name || !email) return;
+
+    var classification = classifyTarget(current === 'FULL_LIBRARY' ? 'FULL_LIBRARY' : window._gateTarget);
+
+    sendLead({
+      name: name,
+      email: email,
+      guide: classification.guide,
+      type: classification.type,
+      source: "Martins Guides"
+    });
+
+    if (current === 'FULL_LIBRARY') {
+      showSuccess('FULL_LIBRARY');
+    } else {
+      showSuccess(window._gateTarget);
+    }
+  });
+
+  // Webinar interest form (separate form on the page)
+  var webinarForm = document.querySelector('#webinars .capture-form');
+  if (webinarForm) {
+    webinarForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name  = document.getElementById('webinar-name').value.trim();
+      var email = document.getElementById('webinar-email').value.trim();
+      var topic = document.getElementById('webinar-topic').value.trim();
+      if (!name || !email) return;
+
+      sendLead({
+        name: name,
+        email: email,
+        guide: topic || 'No topic specified',
+        type: 'Webinar Interest',
+        source: "Martins Guides"
+      });
+
+      webinarForm.reset();
+      alert("Seat reserved. We'll be in touch the moment dates lock in.");
+    });
+  }
+
+  // Capture form on the main page (full library button)
+  window.openGate = function (target) {
+    if (target === 'FULL_LIBRARY') {
+      openGate('FULL_LIBRARY');
+    }
+  };
+
+  // Close interactions
+  closeBtn.addEventListener('click', closeGate);
+  doneBtn.addEventListener('click', closeGate);
+  gate.addEventListener('click', function (e) { if (e.target === gate) closeGate(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeGate(); });
+})();
+</script>
+
+</body>
+</html>
