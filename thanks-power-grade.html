@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Power Grade Delivered // MD/MEDIA</title>
+<meta name="description" content="Your Power Grade 01 download from Martin Kormushoski at MD/MEDIA." />
+<meta name="robots" content="noindex, nofollow" />
+<style>
+  :root {
+    --bg: #fafaf7;
+    --panel: #ffffff;
+    --panel-2: #f3f3ee;
+    --line: #1a1a1a;
+    --line-soft: #d8d6d0;
+    --ink: #0a0a0a;
+    --ink-dim: #4a4a47;
+    --ink-mute: #8a8a86;
+    --accent: #ff5500;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.01em;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .ticker {
+    border-bottom: 1px solid var(--line);
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 8px 24px;
+    text-align: center;
+  }
+  .ticker .dot { color: var(--accent); margin-right: 8px; }
+
+  header {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo { font-weight: 700; font-size: 14px; letter-spacing: 0.2em; }
+  .logo .slash { color: var(--accent); }
+  .back-link {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .back-link:hover { color: var(--accent); }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 32px 120px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  h1 .thin { font-weight: 200; color: var(--ink-dim); }
+
+  .lede {
+    font-size: 17px;
+    color: var(--ink-dim);
+    line-height: 1.6;
+    margin-bottom: 48px;
+    max-width: 520px;
+  }
+
+  .download-card {
+    border: 1px solid var(--ink);
+    background: var(--panel);
+    padding: 40px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+  .download-card::before {
+    content: "// FILE";
+    position: absolute;
+    top: -1px;
+    left: 16px;
+    background: var(--bg);
+    padding: 0 8px;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: var(--ink-mute);
+    transform: translateY(-50%);
+  }
+  .file-name {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    line-height: 1.05;
+    margin-bottom: 12px;
+  }
+  .file-meta {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .file-meta .dot { color: var(--accent); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 28px;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--bg);
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+  .btn:hover { background: var(--accent); border-color: var(--accent); }
+  .btn .arrow { transition: transform 0.2s ease; }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  .next-block {
+    margin-bottom: 48px;
+  }
+  .next-block h3 {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .next-block h3 .num {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    border: 1px solid var(--accent);
+    padding: 4px 8px;
+  }
+  .next-block p {
+    font-size: 14px;
+    color: var(--ink-dim);
+    line-height: 1.6;
+    padding-left: 56px;
+  }
+
+  .support {
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.6;
+  }
+  .support a { color: var(--accent); border-bottom: 1px solid var(--accent); }
+
+  .gate-warning {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 32px;
+    margin-bottom: 32px;
+    border: 1px solid var(--ink);
+    text-align: center;
+  }
+  .gate-warning h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin-bottom: 12px;
+  }
+  .gate-warning p {
+    font-size: 13px;
+    color: rgba(250, 250, 247, 0.7);
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto 16px;
+  }
+  .gate-warning a {
+    color: var(--accent);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    background: var(--ink);
+    color: var(--bg);
+    padding: 32px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  footer .accent { color: var(--accent); }
+
+  @media (max-width: 600px) {
+    main { padding: 56px 24px 80px; }
+    .download-card { padding: 28px 24px; }
+    .next-block p { padding-left: 0; }
+    .file-meta { flex-direction: column; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ticker"><span class="dot">●</span> PAYMENT CONFIRMED · POWER GRADE 01 · READY FOR DOWNLOAD</div>
+
+<header>
+  <a href="/" class="logo">MD<span class="slash">/</span>MEDIA</a>
+  <a href="/" class="back-link">← Back to Guides</a>
+</header>
+
+<main>
+
+  <div id="legit-view">
+    <div class="eyebrow">Order Confirmed</div>
+    <h1>Thank You<br/><span class="thin">Your Grade is Ready</span></h1>
+    <p class="lede">Your payment came through. Power Grade 01 is yours, with free lifetime updates. The download link below works as many times as you need it, and we've also emailed it to you for safekeeping.</p>
+
+    <div class="download-card">
+      <div class="file-name">Power Grade 01<br/>For DaVinci Resolve</div>
+      <div class="file-meta">
+        <span><span class="dot">●</span> .drx</span>
+        <span>S-Log3 + Rec.709</span>
+        <span>v1.0</span>
+      </div>
+      <a href="REPLACE_WITH_POWERGRADE_FILE_URL" class="btn" download id="download-btn">Download Power Grade <span class="arrow">↓</span></a>
+    </div>
+
+    <div class="next-block">
+      <h3><span class="num">01</span>Drop It In Resolve</h3>
+      <p>Open DaVinci Resolve, switch to the Color page, right click any clip and choose <strong>Add Power Grade</strong> from the menu. Browse to the .drx file you just downloaded and import it into your Power Grades library.</p>
+    </div>
+
+    <div class="next-block">
+      <h3><span class="num">02</span>Apply &amp; Adjust</h3>
+      <p>Drag the grade onto your timeline clip. Open the node tree and you'll see separated nodes for exposure, contrast, colour balance, skin tone, and final look. Dial each one in for your footage. Don't be afraid to push.</p>
+    </div>
+
+    <div class="next-block">
+      <h3><span class="num">03</span>Watch The Walkthrough</h3>
+      <p>I recorded a 12 minute setup video walking through the grade on real footage, including the order I touch the nodes and what to do when skin tones get weird. <a href="REPLACE_WITH_WALKTHROUGH_VIDEO_URL" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid var(--accent);">Watch it here</a>.</p>
+    </div>
+
+    <div class="support">
+      Stuck on setup or it's not behaving the way you expect? Email me directly at <a href="mailto:hello@mdmmarketing.com.au">hello@mdmmarketing.com.au</a> with the footage you're trying to grade and I'll take a look. Lifetime updates land in your inbox the moment a new version drops.
+    </div>
+  </div>
+
+  <div id="no-session-view" style="display: none;">
+    <div class="gate-warning">
+      <h2>Hmm, this page is for buyers</h2>
+      <p>Looks like you landed here without a confirmed payment. If you've just bought the Power Grade and got redirected here, refresh the page. Otherwise, head back and grab a copy first.</p>
+      <a href="/#power-grade">Get The Power Grade →</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>© MD<span class="accent">/</span>MEDIA · 2026</footer>
+
+<script>
+(function () {
+  // Light gate: only show download view if Stripe redirected here.
+  // Stripe Payment Links append ?session_id=cs_... to the success URL.
+  // This isn't bulletproof, just stops casual URL sharing.
+  var params = new URLSearchParams(window.location.search);
+  var sessionId = params.get('session_id');
+  var bypass = params.get('preview') === 'true'; // for testing the page
+
+  if (sessionId || bypass) {
+    document.getElementById('legit-view').style.display = 'block';
+    document.getElementById('no-session-view').style.display = 'none';
+  } else {
+    document.getElementById('legit-view').style.display = 'none';
+    document.getElementById('no-session-view').style.display = 'block';
+  }
+})();
+</script>
+
+</body>
+</html>
